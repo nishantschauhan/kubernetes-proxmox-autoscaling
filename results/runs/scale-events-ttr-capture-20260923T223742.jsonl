@@ -1,0 +1,6 @@
+{"timestamp_ms": 1790194807347, "timestamp_iso": "2026-09-23T20:20:07.347792+00:00", "config_id": "config-d", "event": "pending_detected", "pending_pods": 1, "current_nodes": 1, "detail": "first unschedulable pod: thesis-workload-7df9d79464-nbq6p"}
+{"timestamp_ms": 1790194818613, "timestamp_iso": "2026-09-23T20:20:18.613183+00:00", "config_id": "config-d", "event": "scale_triggered", "pending_pods": 1, "current_nodes": 1, "detail": "target=2 CEI=0.50"}
+{"timestamp_ms": 1790194868354, "timestamp_iso": "2026-09-23T20:21:08.354904+00:00", "config_id": "config-d", "event": "node_ready", "pending_pods": 2, "current_nodes": 2, "detail": "TTS_ms=61007"}
+{"timestamp_ms": 1790194869650, "timestamp_iso": "2026-09-23T20:21:09.650148+00:00", "config_id": "config-d", "event": "pending_detected", "pending_pods": 2, "current_nodes": 2, "detail": "first unschedulable pod: thesis-workload-7df9d79464-t9xbh"}
+{"timestamp_ms": 1790194993953, "timestamp_iso": "2026-09-23T20:23:13.953559+00:00", "config_id": "config-d", "event": "scale_triggered", "pending_pods": 2, "current_nodes": 2, "detail": "target=3 CEI=0.75"}
+{"timestamp_ms": 1790195046576, "timestamp_iso": "2026-09-23T20:24:06.576956+00:00", "config_id": "config-d", "event": "node_ready", "pending_pods": 0, "current_nodes": 3, "detail": "TTS_ms=176926"}

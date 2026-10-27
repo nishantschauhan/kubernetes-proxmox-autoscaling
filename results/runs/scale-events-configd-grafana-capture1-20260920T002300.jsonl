@@ -1,0 +1,5 @@
+{"timestamp_ms": 1789852043357, "timestamp_iso": "2026-09-19T21:07:23.357256+00:00", "config_id": "config-d", "event": "pending_detected", "pending_pods": 1, "current_nodes": 1, "detail": "first unschedulable pod: prometheus-monitoring-kube-prometheus-prometheus-0"}
+{"timestamp_ms": 1789852054639, "timestamp_iso": "2026-09-19T21:07:34.639868+00:00", "config_id": "config-d", "event": "scale_triggered", "pending_pods": 1, "current_nodes": 1, "detail": "target=2 CEI=0.50"}
+{"timestamp_ms": 1789852189273, "timestamp_iso": "2026-09-19T21:09:49.273760+00:00", "config_id": "config-d", "event": "node_ready", "pending_pods": 0, "current_nodes": 2, "detail": "TTS_ms=145916"}
+{"timestamp_ms": 1789852581435, "timestamp_iso": "2026-09-19T21:16:21.435674+00:00", "config_id": "config-d", "event": "pending_detected", "pending_pods": 2, "current_nodes": 2, "detail": "first unschedulable pod: thesis-workload-7df9d79464-8p7ml"}
+{"timestamp_ms": 1789852593339, "timestamp_iso": "2026-09-19T21:16:33.339947+00:00", "config_id": "config-d", "event": "scale_triggered", "pending_pods": 2, "current_nodes": 2, "detail": "target=3 CEI=0.75"}

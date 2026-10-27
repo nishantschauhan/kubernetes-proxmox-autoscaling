@@ -1,0 +1,37 @@
+hostname: ${hostname}
+manage_etc_hosts: true
+
+users:
+  - name: ubuntu
+    groups: [adm, sudo]
+    shell: /bin/bash
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    ssh_authorized_keys:
+      - ${ssh_public_key}
+
+swap:
+  filename: ""
+
+runcmd:
+  # --- Timestamp: node bootstrap begins (T_boot_start) --------------------
+  - date +%s%3N > /var/log/thesis-t-boot-start
+
+  - swapoff -a
+  - sed -i '/ swap / s/^/#/' /etc/fstab
+  - apt-get update
+  - apt-get install -y curl
+
+  # --- Install K3s agent and join, in ONE command ------------------------
+  # Contrast with kubeadm: no containerd install, no keyring setup, no
+  # separate package installs, no separate join command.
+  - |
+    curl -sfL https://get.k3s.io | \
+      K3S_URL="https://${control_plane_endpoint}" \
+      K3S_TOKEN="${k3s_token}" \
+      INSTALL_K3S_VERSION="${k3s_version}" \
+      sh -s - agent >> /var/log/thesis-bootstrap.log 2>&1
+
+  # --- Timestamp: node has joined (T_joined) ------------------------------
+  - date +%s%3N > /var/log/thesis-t-joined
+
+final_message: "Thesis K3s node bootstrap complete after $UPTIME seconds"

@@ -1,0 +1,4 @@
+{"timestamp_ms": 1790180188556, "timestamp_iso": "2026-09-23T16:16:28.556741+00:00", "config_id": "config-d", "event": "pending_detected", "pending_pods": 2, "current_nodes": 1, "detail": "first unschedulable pod: monitoring-grafana-7b95c9d84f-ps4ps"}
+{"timestamp_ms": 1790180199777, "timestamp_iso": "2026-09-23T16:16:39.777383+00:00", "config_id": "config-d", "event": "scale_triggered", "pending_pods": 2, "current_nodes": 1, "detail": "target=2 CEI=0.50"}
+{"timestamp_ms": 1790180296769, "timestamp_iso": "2026-09-23T16:18:16.769829+00:00", "config_id": "config-d", "event": "node_ready", "pending_pods": 2, "current_nodes": 2, "detail": "TTS_ms=108213"}
+{"timestamp_ms": 1790180298080, "timestamp_iso": "2026-09-23T16:18:18.080034+00:00", "config_id": "config-d", "event": "pending_detected", "pending_pods": 2, "current_nodes": 2, "detail": "first unschedulable pod: monitoring-grafana-7b95c9d84f-ps4ps"}

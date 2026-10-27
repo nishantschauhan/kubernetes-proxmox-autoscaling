@@ -1,0 +1,3 @@
+{"timestamp_ms": 1789664125252, "timestamp_iso": "2026-09-17T16:55:25.252898+00:00", "config_id": "config-d", "event": "pending_detected", "pending_pods": 1, "current_nodes": 1, "detail": "first unschedulable pod: thesis-workload-7df9d79464-vk67z"}
+{"timestamp_ms": 1789664136569, "timestamp_iso": "2026-09-17T16:55:36.569148+00:00", "config_id": "config-d", "event": "scale_triggered", "pending_pods": 1, "current_nodes": 1, "detail": "target=2 CEI=0.12"}
+{"timestamp_ms": 1789664187105, "timestamp_iso": "2026-09-17T16:56:27.105912+00:00", "config_id": "config-d", "event": "node_ready", "pending_pods": 0, "current_nodes": 2, "detail": "TTS_ms=61853"}

@@ -1,0 +1,7 @@
+{"timestamp_ms": 1789856826121, "timestamp_iso": "2026-09-19T22:27:06.121097+00:00", "config_id": "config-d", "event": "pending_detected", "pending_pods": 1, "current_nodes": 1, "detail": "first unschedulable pod: monitoring-grafana-7b95c9d84f-znh87"}
+{"timestamp_ms": 1789856837348, "timestamp_iso": "2026-09-19T22:27:17.348070+00:00", "config_id": "config-d", "event": "scale_triggered", "pending_pods": 1, "current_nodes": 1, "detail": "target=2 CEI=0.50"}
+{"timestamp_ms": 1789856889935, "timestamp_iso": "2026-09-19T22:28:09.935301+00:00", "config_id": "config-d", "event": "node_ready", "pending_pods": 1, "current_nodes": 2, "detail": "TTS_ms=63814"}
+{"timestamp_ms": 1789856891203, "timestamp_iso": "2026-09-19T22:28:11.203304+00:00", "config_id": "config-d", "event": "pending_detected", "pending_pods": 1, "current_nodes": 2, "detail": "first unschedulable pod: monitoring-grafana-7b95c9d84f-znh87"}
+{"timestamp_ms": 1789857012398, "timestamp_iso": "2026-09-19T22:30:12.398144+00:00", "config_id": "config-d", "event": "scale_triggered", "pending_pods": 1, "current_nodes": 2, "detail": "target=3 CEI=0.75"}
+{"timestamp_ms": 1789857132183, "timestamp_iso": "2026-09-19T22:32:12.183657+00:00", "config_id": "config-d", "event": "node_ready", "pending_pods": 1, "current_nodes": 3, "detail": "TTS_ms=240980"}
+{"timestamp_ms": 1789857133667, "timestamp_iso": "2026-09-19T22:32:13.667273+00:00", "config_id": "config-d", "event": "pending_detected", "pending_pods": 1, "current_nodes": 3, "detail": "first unschedulable pod: monitoring-grafana-7b95c9d84f-znh87"}

@@ -1,0 +1,3 @@
+{"timestamp_ms": 1789810570428, "timestamp_iso": "2026-09-19T09:36:10.428577+00:00", "config_id": "config-d", "event": "pending_detected", "pending_pods": 2, "current_nodes": 1, "detail": "first unschedulable pod: thesis-workload-7df9d79464-4rlq6"}
+{"timestamp_ms": 1789810581653, "timestamp_iso": "2026-09-19T09:36:21.653523+00:00", "config_id": "config-d", "event": "scale_triggered", "pending_pods": 2, "current_nodes": 1, "detail": "target=2 CEI=0.50"}
+{"timestamp_ms": 1789810581887, "timestamp_iso": "2026-09-19T09:36:21.887764+00:00", "config_id": "config-d", "event": "scale_failed", "pending_pods": 2, "current_nodes": 1, "detail": "tofu apply returned non-zero"}

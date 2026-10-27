@@ -1,0 +1,68 @@
+prometheus:
+  prometheusSpec:
+    nodeSelector:
+      kubernetes.io/hostname: config-d-w0
+
+    # Fine-grained scraping so scale-up transients are visible
+    scrapeInterval: 5s
+    evaluationInterval: 5s
+
+    retention: 2d
+
+    # Pick up ServiceMonitors in every namespace, not just the release's own
+    serviceMonitorSelectorNilUsesHelmValues: false
+    podMonitorSelectorNilUsesHelmValues: false
+
+    resources:
+      requests:
+        cpu: 200m
+        memory: 512Mi
+      limits:
+        memory: 2Gi
+
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 20Gi
+
+    additionalScrapeConfigs:
+      - job_name: proxmox
+        scrape_interval: 10s
+        static_configs:
+          - targets:
+              - pve-exporter.monitoring.svc.cluster.local:9221
+        metrics_path: /pve
+        params:
+          module: [default]
+          target: [s09.daas.hof-university.de]
+
+grafana:
+  enabled: true
+  adminPassword: "thesis-admin-2026"
+
+  nodeSelector:
+    kubernetes.io/hostname: config-d-w0
+  service:
+    # LoadBalancer so MetalLB assigns it an IP you can reach from your laptop
+    type: LoadBalancer
+  persistence:
+    enabled: true
+    size: 5Gi
+
+  sidecar:
+    dashboards:
+      enabled: true
+      label: grafana_dashboard
+      folder: /tmp/dashboards
+      provider:
+        name: thesis
+        folder: Thesis
+
+kubeStateMetrics:
+  enabled: true
+
+nodeExporter:
+  enabled: true

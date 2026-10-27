@@ -1,0 +1,65 @@
+# ===========================================================================
+# production.tfvars.example — TEMPLATE for the real Hof University server
+# ===========================================================================
+# HARDWARE DAY PROCEDURE:
+#   1. cp production.tfvars.example production.tfvars
+#   2. Fill in every < > placeholder from the actual server
+#   3. production.tfvars is gitignored, so your real token stays out of git
+#
+# This is the ONLY file you edit when moving from laptop to bare metal.
+# No module code changes. That is the whole point of the variable design.
+# ===========================================================================
+
+# --- Proxmox connection ----------------------------------------------------
+proxmox_endpoint     = "https://<PROXMOX-IP>:8006/"
+proxmox_node         = "<PVE-NODE-NAME>"        # shown top-left in the Proxmox UI
+proxmox_insecure     = true                     # true while using self-signed cert
+proxmox_ssh_username = "root"
+
+# API token: Datacenter -> Permissions -> API Tokens -> Add
+# Format: user@realm!tokenid=uuid
+# BETTER: leave this blank and export it instead, so it never touches disk:
+#   export TF_VAR_proxmox_api_token='root@pam!thesis=xxxxxxxx-xxxx-...'
+proxmox_api_token = ""
+
+# --- Templates (create these on the server first) --------------------------
+# VM template: build from an Ubuntu cloud image, then convert to template.
+vm_template_id = 9000
+# LXC template: pveam download local ubuntu-22.04-standard
+lxc_template_file_id = "local:vztmpl/ubuntu-22.04-standard_22.04-1_amd64.tar.zst"
+
+# --- Storage and network (read these off the server) -----------------------
+storage_pool   = "local-lvm"      # Datacenter -> Storage
+network_bridge = "vmbr0"          # Node -> System -> Network
+snippet_storage = "local"         # must have "Snippets" content type enabled
+
+# --- Addressing ------------------------------------------------------------
+node_subnet    = "<192.168.1.0/24>"
+node_gateway   = "<192.168.1.1>"     # the FreeBSD edge gateway
+node_ip_offset = 120                 # first node gets .120
+use_dhcp       = false
+
+# --- Node sizing (MUST be identical across all four configs) ---------------
+node_cpu_cores = 2
+node_memory_mb = 2048
+node_disk_gb   = 20
+
+# --- Cluster join parameters ----------------------------------------------
+# Obtain AFTER the control plane is up:
+#   kubeadm:  kubeadm token create --print-join-command
+#   k3s:      cat /var/lib/rancher/k3s/server/node-token
+k8s_control_plane_endpoint = "<CONTROL-PLANE-IP>:6443"
+kubeadm_join_token         = "<TOKEN>"
+kubeadm_ca_cert_hash       = "<SHA256-HASH-WITHOUT-PREFIX>"
+k3s_token                  = "<K3S-NODE-TOKEN>"
+k8s_minor_version          = "v1.31"
+k3s_version                = "v1.31.4+k3s1"
+
+# --- SSH -------------------------------------------------------------------
+ssh_public_key       = "<CONTENTS OF ~/.ssh/thesis_key.pub>"
+ssh_private_key_path = "~/.ssh/thesis_key"
+node_root_password   = "<STRONG-PASSWORD-FOR-LXC>"
+
+# --- Experiment control ----------------------------------------------------
+active_config = "config-a"   # switch between config-a/b/c/d per experiment
+node_count    = 1            # the autoscaler overrides this at runtime
